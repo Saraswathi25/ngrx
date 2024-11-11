@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-form-field>
+        <h1>{{name}}</h1>
+        <button color="accent" mat-raised-button  (click)="addWelcome()">Welcome</button>
+        <label>Counter Input</label>
+        <input matInput [(ngModel)]="counterInput">
+    </mat-form-field>
+    <mat-form-field>
+        <label>Action Type</label>
+        <mat-select [(ngModel)]="actionType">
+            <mat-option value="add">Add</mat-option>
+            <mat-option value="remove">Remove</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button color="primary" mat-raised-button  (click)="onCustomIncrement()">Custom Increment</button>
+</mat-card>
