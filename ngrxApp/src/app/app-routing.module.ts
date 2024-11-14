@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { CounterComponent } from './component/counter/counter.component';
 import { HomeComponent } from './component/home/home.component';
-import { PostsComponent } from './component/posts/posts.component';
+
 
 const routes: Routes = [
   {
     path: '',component: HomeComponent
   },
   {
-    path:'counter',component:CounterComponent
+    path:'counter',
+    loadChildren:()=> import('./component/counter/counter.module').then(m=>m.CounterModule)
+    
   },
   {
-    path:'posts',component:PostsComponent
+    path:'posts',
+    loadChildren:()=> import('./component/posts/post.module').then((m)=>m.PostsModule),
+   
+  },
+  {
+    path:'auth',
+    loadChildren:()=> import('./component/auth/auth.module').then((m)=>m.AuthModule)
   }
   
   
