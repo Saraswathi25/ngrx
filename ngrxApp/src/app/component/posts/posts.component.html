@@ -1,1 +1,39 @@
-<p>posts works!</p>
+<button mat-fab extended [routerLink]="['/posts/add']">
+   
+    Add Post
+  </button>
+  <div class="container">
+  <div style="width:60%">
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+       
+      </tr>
+    </thead>
+    <tbody *ngFor="let post of posts | async">
+      <tr>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.description}}</td>
+        <td><button mat-fab extended [routerLink]="['/posts/edit',post.id]">
+   
+            Edit
+          </button>
+          <button mat-fab extended  (click)="onDelete(post.id)">
+   
+            Delete
+          </button></td>
+       
+      </tr>
+    
+    </tbody>
+  </table>
+</div>
+<div style="width:40%">
+    <router-outlet></router-outlet>
+</div>
+</div>

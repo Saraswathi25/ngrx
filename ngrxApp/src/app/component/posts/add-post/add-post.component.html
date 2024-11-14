@@ -1,0 +1,17 @@
+<div class="form-container">
+ 
+    <form  [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" formControlName="title" required>
+      <div *ngIf="postForm.get('title')?.touched && postForm.get('title')?.errors?.['required']">
+        <small class="error-message">Title is required.</small>
+      </div>
+      
+     
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" formControlName="description" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
