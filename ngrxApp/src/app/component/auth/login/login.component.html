@@ -1,0 +1,17 @@
+<div class="form-container">
+ 
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" formControlName="email" required>
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">
+        <small class="error-message">Email is required.</small>
+      </div>
+      
+     
+
+      <label for="password">Password</label>
+      <textarea id="password" name="password" rows="5" formControlName="password" required></textarea>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
